@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AssignCard : MonoBehaviour
+public class AssignSoul : MonoBehaviour
 {
     void Start()
     {

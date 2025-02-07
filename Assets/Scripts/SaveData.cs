@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-class GameData
+public static class GameData
 {
-    public int playerHP;
-    public int souls;
-    public List<Card> playerDeck;
-    public List<List<bool>> levelCompletion;
+    public static int playerHP;
+    public static int souls;
+    public static List<Dictionary<string, string>> playerDeck;
 }
 
 public class SaveData : MonoBehaviour
@@ -20,7 +19,7 @@ public class SaveData : MonoBehaviour
         filePath = Application.persistentDataPath + "/lantern" + SessionData.selectedSave + ".json";
     }
 
-    void NewDataFile() // param: int saveSlot (for later)
+    void NewDataFile()
     {
 
     }
