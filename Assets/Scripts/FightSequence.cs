@@ -7,8 +7,8 @@ public class FightSequence : MonoBehaviour
 {
     public Button endTurnButton;
     public TextMeshProUGUI turnText;
-    int playerHP;
-    int enemyHP;
+    public TextMeshProUGUI energyText;
+    int turn = 0;
 
     void Start()
     {
@@ -18,33 +18,39 @@ public class FightSequence : MonoBehaviour
 
     public void PlayerTurn()
     {
-        endTurnButton.gameObject.SetActive(true);
-        SessionData.currentTurn = 1;
-        turnText.text = "Your turn";
+        turn++;
 
+        endTurnButton.gameObject.SetActive(true);
+        turnText.text = "Your Turn";
+
+        SessionData.currentEnergy += 3;
+        energyText.text = SessionData.currentEnergy.ToString();
+
+        endTurnButton.onClick.RemoveAllListeners();
         endTurnButton.onClick.AddListener(HideButton);
     }
 
     void HideButton()
     {
+        SessionData.currentTurn = 1;
+        turnText.text = "";
         EnemyTurn();
         endTurnButton.gameObject.SetActive(false);
     }
 
     public void EnemyTurn()
     {
-        endTurnButton.gameObject.SetActive(false);
         SessionData.currentTurn = 0;
-        turnText.text = "";
 
-        // EnemyAttack() for e in enemy
+        // enemy attack
 
         StartCoroutine(Sleep());
-        PlayerTurn();
     }
 
     IEnumerator Sleep()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
+        SessionData.currentTurn = 0;
+        PlayerTurn();
     }
 }
