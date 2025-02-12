@@ -5,10 +5,10 @@ using TMPro;
 
 public class FightSequence : MonoBehaviour
 {
+    public static int playerHP, enemyHP;
     public Button endTurnButton;
-    public TextMeshProUGUI turnText;
-    public TextMeshProUGUI energyText;
-    int turn = 0;
+    public TextMeshProUGUI turnText, energyText;
+    int turnNum = 0;
 
     void Start()
     {
@@ -18,12 +18,12 @@ public class FightSequence : MonoBehaviour
 
     public void PlayerTurn()
     {
-        turn++;
+        turnNum++;
 
         endTurnButton.gameObject.SetActive(true);
         turnText.text = "Your Turn";
 
-        SessionData.currentEnergy += 3;
+        SessionData.currentEnergy += 3; // Player will gain more energy as more turns progress
         energyText.text = SessionData.currentEnergy.ToString();
 
         endTurnButton.onClick.RemoveAllListeners();

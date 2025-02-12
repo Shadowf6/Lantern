@@ -7,14 +7,14 @@ public static class GameData
 {
     public static int playerHP;
     public static int souls;
-    public static List<Dictionary<string, string>> playerDeck;
+    public static List<Soul> playerDeck;
 }
 
 public class SaveData : MonoBehaviour
 {
     string filePath;
 
-    void Start()
+    void Awake()
     {
         filePath = Application.persistentDataPath + "/lantern" + SessionData.selectedSave + ".json";
     }
