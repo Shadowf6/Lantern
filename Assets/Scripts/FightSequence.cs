@@ -5,18 +5,23 @@ using TMPro;
 
 public class FightSequence : MonoBehaviour
 {
-    public static int playerHP, enemyHP;
     public Button endTurnButton;
     public TextMeshProUGUI turnText, energyText;
     int turnNum = 0;
 
     void Start()
     {
+        GameData.playerDeck.Add(Defaults.MakeSoul("Lantern"));
         SessionData.currentTurn = 0;
+        PlaceSouls();
+    }
+
+    void PlaceSouls()
+    {
         PlayerTurn();
     }
 
-    public void PlayerTurn()
+    void PlayerTurn()
     {
         turnNum++;
 
@@ -38,7 +43,7 @@ public class FightSequence : MonoBehaviour
         endTurnButton.gameObject.SetActive(false);
     }
 
-    public void EnemyTurn()
+    void EnemyTurn()
     {
         SessionData.currentTurn = 0;
 
@@ -47,7 +52,7 @@ public class FightSequence : MonoBehaviour
         StartCoroutine(Sleep());
     }
 
-    IEnumerator Sleep()
+    IEnumerator Sleep() // remove later
     {
         yield return new WaitForSeconds(3f);
         SessionData.currentTurn = 0;

@@ -1,24 +1,24 @@
-using System.Collections.Generic;
-
 public class Defaults
 {
     public static Soul MakeSoul(string name)
     {
-        Dictionary<string, Soul> defaultSouls = new Dictionary<string, Soul>()
+        switch (name)
         {
-            {"Lantern",new Soul{soulName="Lantern",description="",level=0,spells={MakeSpell("fireball")}}}
-        };
+            case "Lantern":
+                return new Soul { soulName = "Lantern", description = "", level = 1, spells = { MakeSpell("Fireball") } };
+        }
 
-        return defaultSouls[name];
+        return null;
     } 
 
     public static Spell MakeSpell(string name)
     {
-        Dictionary<string, Spell> defaultSpells = new Dictionary<string, Spell>()
+        switch (name)
         {
-            {"Fireball",new Spell{name="Fireball1",vals={{"damage",15},{"cost",3}}}}
-        };
+            case "Fireball":
+                return new Fireball();
+        }
 
-        return defaultSpells[name];
+        return null;
     }
 }

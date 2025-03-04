@@ -3,15 +3,10 @@ using UnityEngine.UI;
 
 public class AssignSoul : MonoBehaviour
 {
-    GameObject deckBar;
-
-    void Start()
+    public static void AssignSpells(int n)
     {
-        deckBar = GameObject.FindWithTag("DeckBar");
-    }
+        GameObject deckBar = GameObject.FindWithTag("DeckBar");
 
-    public static void AssignStats(int n)
-    {
         for (int i = 0; i < n; i++)
         {
             Transform child = deckBar.transform.GetChild(i + 2);
