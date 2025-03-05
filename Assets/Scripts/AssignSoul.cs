@@ -5,11 +5,11 @@ public class AssignSoul : MonoBehaviour
 {
     public static void AssignSpells(int n)
     {
-        GameObject deckBar = GameObject.FindWithTag("DeckBar");
+        GameObject deckBar = GameObject.FindWithTag("Deck");
 
         for (int i = 0; i < n; i++)
         {
-            Transform child = deckBar.transform.GetChild(i + 2);
+            GameObject child = deckBar.transform.GetChild(i + 2).gameObject;
             Image slot = child.GetComponent<Image>();
 
             if (i < GameData.playerDeck[n].spells.Count)

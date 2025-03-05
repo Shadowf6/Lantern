@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 160664714}
   m_Layer: 5
   m_Name: DeckBar
-  m_TagString: Untagged
+  m_TagString: Deck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1230,7 +1230,7 @@ GameObject:
   - component: {fileID: 609974734}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4648,6 +4648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2016080127}
   - component: {fileID: 2016080126}
+  - component: {fileID: 2016080128}
   m_Layer: 0
   m_Name: Stuff
   m_TagString: Untagged
@@ -4685,6 +4686,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2016080128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016080125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34deb7d6165a3447b808977b98bea8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colDif: 0.083
+  rowDif: -0.33
+  initX: -0.455
+  initY: 0.335
 --- !u!1 &2030097597
 GameObject:
   m_ObjectHideFlags: 0

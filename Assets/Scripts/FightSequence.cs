@@ -11,8 +11,8 @@ public class FightSequence : MonoBehaviour
 
     void Start()
     {
-        GameData.playerDeck.Add(Defaults.MakeSoul("Lantern"));
         SessionData.currentTurn = 0;
+        GridFitting.ResetTiles();
         PlaceSouls();
     }
 
@@ -49,7 +49,7 @@ public class FightSequence : MonoBehaviour
 
         // enemy attack
 
-        StartCoroutine(Sleep());
+        StartCoroutine(Sleep()); // Placeholder for enemy attack
     }
 
     IEnumerator Sleep() // remove later

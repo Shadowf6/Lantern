@@ -2,7 +2,7 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 
-// [System.Serializable]
+[System.Serializable]
 public static class GameData // remove "static" tag later (when i actually bother to code the save data)
 {
     public static int playerHP;
@@ -14,7 +14,7 @@ public class SaveData : MonoBehaviour
 {
     string filePath;
 
-    void Awake()
+    public SaveData()
     {
         filePath = Application.persistentDataPath + "/lantern" + SessionData.selectedSave + ".json";
     }

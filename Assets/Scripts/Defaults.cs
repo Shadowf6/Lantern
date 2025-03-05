@@ -5,7 +5,7 @@ public class Defaults
         switch (name)
         {
             case "Lantern":
-                return new Soul { soulName = "Lantern", description = "", level = 1, spells = { MakeSpell("Fireball") } };
+                return new Soul { soulName = "Lantern", level = 1, spells = { MakeSpell("Fireball") } };
         }
 
         return null;

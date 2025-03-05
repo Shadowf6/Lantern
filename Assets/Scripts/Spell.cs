@@ -12,7 +12,5 @@ public class Spell
 
 class Fireball : Spell
 {
-    string spriteName = "Fireball";
-
-    public Fireball() : base("Fireball", 3) { }
+    public Fireball() : base("Fireball", 3) {}
 }

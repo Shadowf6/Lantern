@@ -50,23 +50,56 @@ public class GridFitting : MonoBehaviour
 
             for (int j = 1; j <= k; j++)
             {
-                grid[x + dx * j][y + dy * j] = 1;
+                dx = x + dx * j;
+                dy = y + dy * j;
+
+                if (!(dx < 0 || dx >= width || dy < 0 || dy >= height)) // Check for out of bounds
+                {
+                    grid[dx][dy] = 1; // 1: filled in
+                }
             }
         }
-    } 
-
-    public static void ResetTiles()
+    }
+    
+    public static void FillTiles()
     {
+        GameObject deckBar = GameObject.FindWithTag("Grid");
+
         for (int i = 0; i < height; i++)
         {
             for (int j = 0; j < width; j++)
             {
+                if (grid[i][j] == 1)
+                {
+                    Transform row = deckBar.transform.GetChild(i);
+                    Transform col = row.GetChild(j);
+                    SpriteRenderer tile = col.GetComponent<SpriteRenderer>();
+
+                    tile.color = new Color(0.6f, 0.6f, 0.6f);
+                }
+            }
+        }
+    }
+
+    public static void ResetTiles()
+    {
+        GameObject deckBar = GameObject.FindWithTag("Grid");
+
+        for (int i = 0; i < height; i++)
+        {
+            for (int j = 0; j < width; j++)
+            {
+                Transform row = deckBar.transform.GetChild(i);
+                GameObject col = row.GetChild(j).gameObject;
+                SpriteRenderer tile = col.GetComponent<SpriteRenderer>();
+
+                tile.color = Color.white;
                 grid[i][j] = 0;
             }
         }
     }
 
-    public static List<float> MoveToTile()
+    public static List<float> MoveToTile(int r, int c)
     {
         return null;
     }
