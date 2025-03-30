@@ -2,7 +2,7 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class GameData
+public static class GameData // Session-instance data
 {
     public static int playerHP;
     public static int coins;
@@ -10,7 +10,7 @@ public static class GameData
 }
 
 [System.Serializable]
-public class SerializableData
+public class SerializableData // Serializable class for JSON
 {
     public int playerHP;
     public int coins;
@@ -42,11 +42,9 @@ public class SaveData : MonoBehaviour
 
     void NewDataFile()
     {
-        // add defaults
-
+        GameData.playerHP = 100;
         GameData.coins = 0;
         GameData.playerDeck = new List<Soul>();
-
 
         SaveGame();
     } 

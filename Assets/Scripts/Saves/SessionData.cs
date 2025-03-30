@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-public static class SessionData
+public static class SessionData // Temporary session data, resets itself upon restart
 {
     public static int selectedSave = 0; 
     public static int currentArea = -1; // Negative values for testing
@@ -18,8 +18,7 @@ public static class SessionData
     // -1: not in combat
 
     public static int selectedSoul = -1;
-
-    // -1: not selected
+    // -1: none selected
     
     public static List<string> enemyQueue; // Empty list if out of combat
 }

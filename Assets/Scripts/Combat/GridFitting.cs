@@ -59,6 +59,8 @@ public class GridFitting : MonoBehaviour
                 }
             }
         }
+
+        FillTiles();
     }
     
     public static void FillTiles()
